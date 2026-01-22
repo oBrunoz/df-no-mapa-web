@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { LeafletModule } from '@bluehalo/ngx-leaflet';
 import { Map } from 'leaflet';
 import { LeafletService } from '../../services/map/leaflet.service';
 import { MapStore } from '../../services/map.store';
