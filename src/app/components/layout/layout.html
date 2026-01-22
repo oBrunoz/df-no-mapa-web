@@ -1,0 +1,19 @@
+<div class="relative w-full h-screen overflow-hidden">
+  
+  <!-- Mapa -->
+  <div class="absolute inset-0 z-0">
+    <app-map></app-map>
+  </div>
+
+  <!-- Sidebar + Navbar -->
+  <div class="absolute top-0 left-0 right-0 z-20 pointer-events-none p-4 flex justify-between items-start">
+      <app-sidebar class="pointer-events-auto"></app-sidebar>
+      <app-navbar class="pointer-events-auto"></app-navbar>
+  </div>
+
+  <!-- Timeline -->
+  <div class="absolute bottom-6 left-0 right-0 z-20 pointer-events-none flex justify-center px-4">
+      <app-timeline class="w-full max-w-5xl pointer-events-auto shadow-2xl"></app-timeline>
+  </div>
+  
+</div>

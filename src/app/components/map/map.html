@@ -1,0 +1,9 @@
+<div class="h-full w-full absolute inset-0 bg-gray-200"
+     leaflet 
+     [leafletOptions]="options"
+     (leafletMapReady)="onMapReady($event)">
+</div>
+
+@if (mapStore.isAnyLayerLoading()) {
+     <div class="absolute inset-0 z-[1000] pointer-events-none bg-white/20 animate-pulse skeleton-overlay"></div>
+}

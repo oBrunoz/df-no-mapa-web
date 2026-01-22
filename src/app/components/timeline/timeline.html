@@ -1,0 +1,38 @@
+<div class="glass-panel rounded-xl p-4 flex items-center gap-4 w-full max-w-4xl mx-auto mb-6 pointer-events-auto">
+  <div class="flex items-center gap-2 text-primary font-bold">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+    </svg>
+    <span>{{ mapStore.currentYear() }}</span>
+  </div>
+
+  <div class="flex-1 relative h-8 flex items-center">
+    <!-- Linha base -->
+    <div class="absolute w-full h-1 bg-gray-300 rounded-full"></div>
+
+    <!-- Pontos da linha do tempo -->
+    <div class="relative w-full flex justify-between px-2">
+      @for (year of years; track year) {
+        <button (click)="selectYear(year)" class="relative group focus:outline-none">
+          <!-- Bolinha -->
+          <div class="w-4 h-4 rounded-full border-2 transition-all duration-300"
+              [ngClass]="{
+                'bg-teal-700 border-teal-700 scale-125 shadow-lg': mapStore.currentYear() === year,
+                'bg-white border-gray-400 group-hover:border-teal-500': mapStore.currentYear() !== year
+              }">
+          </div>
+          
+          <!-- Label do ano (aparece no hover ou se selecionado) -->
+          <span class="absolute -top-8 left-1/2 transform -translate-x-1/2 text-xs font-medium transition-opacity duration-200"
+                [ngClass]="{
+                  'opacity-100 text-teal-800 font-bold': mapStore.currentYear() === year,
+                  'opacity-0 group-hover:opacity-100 text-gray-600': mapStore.currentYear() !== year
+                }">
+            {{ year }}
+          </span>
+        </button>
+      }
+    </div>
+  </div>
+</div>
+
